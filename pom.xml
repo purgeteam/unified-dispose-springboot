@@ -15,6 +15,36 @@
         <module>unifed-dispose-demo</module>
     </modules>
 
+    <!-- 开发者信息 -->
+    <developers>
+        <developer>
+            <name>purgeyao</name>
+            <email>16621377702@163.com</email>
+            <roles>
+                <role>owner</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <!-- 代码库 -->
+    <scm>
+        <url>https://github.com/purgeteam/unified-dispose-springboot</url>
+        <connection>https://github.com/purgeteam/unified-dispose-springboot.git</connection>
+    </scm>
+
+    <!-- 定义snapshots库和releases库的nexus地址 -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <unified-dispose-starter.version>0.1.0.RELEASE</unified-dispose-starter.version>
 
