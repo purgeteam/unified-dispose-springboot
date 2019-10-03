@@ -1,4 +1,4 @@
-package io.purge.starter.dispose.exception.error.details;
+package com.purgeteam.dispose.starter.exception.error.details;
 
 import lombok.Getter;
 

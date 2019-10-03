@@ -1,4 +1,4 @@
-package io.purge.starter.dispose.annotation;
+package com.purgeteam.dispose.starter.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

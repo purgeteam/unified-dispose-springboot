@@ -1,4 +1,4 @@
-package io.purge.starter.dispose.exception.error;
+package com.purgeteam.dispose.starter.exception.error;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

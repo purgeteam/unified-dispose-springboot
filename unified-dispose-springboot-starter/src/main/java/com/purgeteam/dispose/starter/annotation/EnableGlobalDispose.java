@@ -1,6 +1,7 @@
-package io.purge.starter.dispose.annotation;
+package com.purgeteam.dispose.starter.annotation;
 
-import io.purge.starter.dispose.GlobalDefaultConfiguration;
+import com.purgeteam.dispose.starter.GlobalDefaultConfiguration;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -1,6 +1,6 @@
-package io.purge.starter.dispose.exception.category;
+package com.purgeteam.dispose.starter.exception.category;
 
-import io.purge.starter.dispose.exception.error.details.BusinessErrorCode;
+import com.purgeteam.dispose.starter.exception.error.details.BusinessErrorCode;
 import lombok.Getter;
 
 /**

@@ -1,6 +1,6 @@
-package com.purgeteam.demo;
+package com.purgeteam.dispose.starter.demo;
 
-import io.purge.starter.dispose.annotation.EnableGlobalDispose;
+import com.purgeteam.dispose.starter.annotation.EnableGlobalDispose;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

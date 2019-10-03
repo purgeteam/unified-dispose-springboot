@@ -1,7 +1,7 @@
-package io.purge.starter.dispose;
+package com.purgeteam.dispose.starter;
 
-import io.purge.starter.dispose.advice.CommonResponseDataAdvice;
-import io.purge.starter.dispose.exception.GlobalDefaultExceptionHandler;
+import com.purgeteam.dispose.starter.advice.CommonResponseDataAdvice;
+import com.purgeteam.dispose.starter.exception.GlobalDefaultExceptionHandler;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

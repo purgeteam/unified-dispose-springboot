@@ -1,4 +1,4 @@
-package io.purge.starter.dispose;
+package com.purgeteam.dispose.starter;
 
 import java.util.ArrayList;
 import java.util.List;

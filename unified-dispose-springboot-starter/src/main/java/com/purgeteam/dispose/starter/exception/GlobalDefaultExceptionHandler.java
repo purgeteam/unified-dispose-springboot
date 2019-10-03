@@ -1,10 +1,11 @@
-package io.purge.starter.dispose.exception;
+package com.purgeteam.dispose.starter.exception;
 
 import com.netflix.client.ClientException;
+import com.purgeteam.dispose.starter.exception.error.CommonErrorCode;
 import feign.FeignException;
-import io.purge.starter.dispose.Result;
-import io.purge.starter.dispose.exception.category.BusinessException;
-import io.purge.starter.dispose.exception.error.CommonErrorCode;
+import com.purgeteam.dispose.starter.Result;
+import com.purgeteam.dispose.starter.exception.category.BusinessException;
+
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

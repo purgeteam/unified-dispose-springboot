@@ -1,9 +1,10 @@
-package io.purge.starter.dispose;
+package com.purgeteam.dispose.starter;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import io.purge.starter.dispose.exception.error.CommonErrorCode;
+import com.purgeteam.dispose.starter.exception.error.CommonErrorCode;
+
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;

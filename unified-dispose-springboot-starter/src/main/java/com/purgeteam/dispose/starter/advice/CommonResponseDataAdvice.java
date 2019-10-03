@@ -1,9 +1,9 @@
-package io.purge.starter.dispose.advice;
+package com.purgeteam.dispose.starter.advice;
 
 import com.alibaba.fastjson.JSON;
-import io.purge.starter.dispose.GlobalDefaultProperties;
-import io.purge.starter.dispose.Result;
-import io.purge.starter.dispose.annotation.IgnorReponseAdvice;
+import com.purgeteam.dispose.starter.GlobalDefaultProperties;
+import com.purgeteam.dispose.starter.Result;
+import com.purgeteam.dispose.starter.annotation.IgnorReponseAdvice;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
