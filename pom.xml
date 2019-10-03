@@ -7,8 +7,10 @@
 
     <groupId>com.purgeteam</groupId>
     <artifactId>unified-dispose-springboot</artifactId>
-    <version>0.1.0.RELEASE</version>
+    <version>0.1.1.RELEASE</version>
     <name>unified-dispose-springboot</name>
+    <description>Unified Dispose Springboot</description>
+    <url>https://github.com/purgeteam/unified-dispose-springboot</url>
 
     <modules>
         <module>unified-dispose-springboot-starter</module>
@@ -57,7 +59,7 @@
     </distributionManagement>
 
     <properties>
-        <unified-dispose-starter.version>0.1.0.RELEASE</unified-dispose-starter.version>
+        <unified-dispose-starter.version>0.1.1.RELEASE</unified-dispose-starter.version>
 
         <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
         <spring-cloud-openfeign.version>2.1.2.RELEASE</spring-cloud-openfeign.version>
