@@ -10,7 +10,7 @@
 <dependency>
   <groupId>com.purgeteam</groupId>
   <artifactId>unified-dispose-springboot-starter</artifactId>
-  <version>0.1.0.RELEASE</version>
+  <version>0.1.1.RELEASE</version>
 </dependency>
 ```
 
