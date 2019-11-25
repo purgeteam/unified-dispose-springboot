@@ -74,13 +74,21 @@ throw new BusinessException("CLOUD800","没有多余的库存");
 通常不建议直接抛出通用的BusinessException异常，应当在对应的模块里添加对应的领域的异常处理类以及对应的枚举错误类型。
 
 如会员模块：
-创建`UserException`异常类、`UserErrorCode`枚举、以及`UserExceptionHandler`统一拦截类。
+创建`UserException`异常类、`UserErrorCode`枚举。
 
 UserException:
 
+继承 `BusinessException` 
+
 ```java
-@Data
-public class UserException extends RuntimeException {
+/**
+ * {@link RuntimeException} user 业务异常
+ *
+ * @author purgeyao
+ * @since 1.0
+ */
+@Getter
+public class UserException extends BusinessException {
 
   private String code;
   private boolean isShowMsg = true;
@@ -91,8 +99,8 @@ public class UserException extends RuntimeException {
    * @param errorCode 异常枚举
    */
   public UserException(UserErrorCode errorCode) {
-    super(errorCode.getMessage());
-    this.setCode(errorCode.getCode());
+    super(errorCode.getCode(), errorCode.getMessage());
+    this.code = errorCode.getCode();
   }
 
 }
@@ -117,25 +125,6 @@ public enum UserErrorCode {
         this.code = code;
         this.message = message;
     }
-}
-```
-
-UserExceptionHandler:
-
-```java
-@Slf4j
-@RestControllerAdvice
-public class UserExceptionHandler {
-
-  /**
-   * UserException 类捕获
-   */
-  @ExceptionHandler(value = UserException.class)
-  public Result handler(UserException e) {
-    log.error(e.getMessage(), e);
-    return Result.ofFail(e.getCode(), e.getMessage());
-  }
-
 }
 ```
 
