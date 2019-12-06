@@ -54,6 +54,11 @@ public enum CommonErrorCode {
    * 业务异常
    */
   BUSINESS_ERROR("CLOUD-400", "业务异常"),
+  
+  /**
+   * 非法请求
+   */
+  ILLEGAL_REQUEST("CLOUD-ILLEGAL_REQUEST", "非法请求"),
 
   /**
    * rpc调用异常
