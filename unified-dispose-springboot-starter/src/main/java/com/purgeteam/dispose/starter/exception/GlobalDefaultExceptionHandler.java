@@ -1,13 +1,10 @@
 package com.purgeteam.dispose.starter.exception;
 
 import com.netflix.client.ClientException;
-import com.purgeteam.dispose.starter.exception.error.CommonErrorCode;
-import feign.FeignException;
 import com.purgeteam.dispose.starter.Result;
 import com.purgeteam.dispose.starter.exception.category.BusinessException;
-
-import java.util.List;
-
+import com.purgeteam.dispose.starter.exception.error.CommonErrorCode;
+import feign.FeignException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -22,6 +19,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import java.util.List;
+import java.util.Set;
 
 /**
  * {@link RestControllerAdvice} 基础全局异常处理
@@ -128,6 +130,28 @@ public class GlobalDefaultExceptionHandler {
     }
 
     /**
+     * ConstraintViolationException 参数错误异常
+     */
+    @ExceptionHandler(ConstraintViolationException.class)
+    public Result handleConstraintViolationException(ConstraintViolationException ex) {
+        String smg = "";
+        Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
+        if (log.isDebugEnabled()) {
+            for (ConstraintViolation error : constraintViolations) {
+                log.error("{} -> {}", error.getPropertyPath(), error.getMessageTemplate());
+                smg = error.getMessageTemplate();
+            }
+        }
+
+        if (constraintViolations.isEmpty()) {
+            log.error("validExceptionHandler error fieldErrors is empty");
+            Result.ofFail(CommonErrorCode.BUSINESS_ERROR.getCode(), "");
+        }
+
+        return Result.ofFail(CommonErrorCode.PARAM_ERROR.getCode(), smg);
+    }
+
+    /**
      * MethodArgumentNotValidException 参数错误异常
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -140,7 +164,7 @@ public class GlobalDefaultExceptionHandler {
      * BindException 参数错误异常
      */
     @ExceptionHandler(BindException.class)
-    public Result handleMethodArgumentNotValidException(BindException e) {
+    public Result handleBindException(BindException e) {
         outPutError(BindException.class, CommonErrorCode.PARAM_ERROR, e);
         BindingResult bindingResult = e.getBindingResult();
         return getBindResultDTO(bindingResult);
