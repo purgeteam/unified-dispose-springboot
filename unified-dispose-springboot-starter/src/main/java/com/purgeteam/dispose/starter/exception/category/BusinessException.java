@@ -1,5 +1,6 @@
 package com.purgeteam.dispose.starter.exception.category;
 
+import com.purgeteam.dispose.starter.exception.error.CommonErrorCode;
 import com.purgeteam.dispose.starter.exception.error.details.BusinessErrorCode;
 import lombok.Getter;
 
@@ -21,6 +22,16 @@ public class BusinessException extends RuntimeException {
    * @param errorCode 异常枚举
    */
   public BusinessException(BusinessErrorCode errorCode) {
+    super(errorCode.getMessage());
+    this.code = errorCode.getCode();
+  }
+  
+  /**
+   * 使用CommonErrorCode枚举传参
+   *
+   * @param errorCode 异常枚举
+   */
+  public BusinessException(CommonErrorCode errorCode) {
     super(errorCode.getMessage());
     this.code = errorCode.getCode();
   }
