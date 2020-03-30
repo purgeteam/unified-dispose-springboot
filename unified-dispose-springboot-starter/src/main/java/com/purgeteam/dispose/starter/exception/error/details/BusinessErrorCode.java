@@ -14,7 +14,7 @@ public enum BusinessErrorCode {
     /**
      * 通用业务异常
      */
-    BUSINESS_ERROR("CLOUD800","业务异常"),
+    BUSINESS_ERROR("CLOUD800", "业务异常"),
     ;
 
     private String code;

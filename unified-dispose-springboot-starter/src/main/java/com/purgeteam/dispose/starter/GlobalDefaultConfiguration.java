@@ -16,14 +16,14 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource(value = "classpath:dispose.properties", encoding = "UTF-8")
 public class GlobalDefaultConfiguration {
 
-  @Bean
-  public GlobalDefaultExceptionHandler globalDefaultExceptionHandler() {
-    return new GlobalDefaultExceptionHandler();
-  }
+    @Bean
+    public GlobalDefaultExceptionHandler globalDefaultExceptionHandler() {
+        return new GlobalDefaultExceptionHandler();
+    }
 
-  @Bean
-  public CommonResponseDataAdvice commonResponseDataAdvice(GlobalDefaultProperties globalDefaultProperties){
-    return new CommonResponseDataAdvice(globalDefaultProperties);
-  }
+    @Bean
+    public CommonResponseDataAdvice commonResponseDataAdvice(GlobalDefaultProperties globalDefaultProperties) {
+        return new CommonResponseDataAdvice(globalDefaultProperties);
+    }
 
 }
