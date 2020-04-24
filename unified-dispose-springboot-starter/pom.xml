@@ -67,12 +67,6 @@
             <version>${javaee-api.version}</version>
         </dependency>
 
-        <!-- java lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
     </dependencies>
 
 </project>

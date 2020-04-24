@@ -1,6 +1,5 @@
 package com.purgeteam.dispose.starter;
 
-import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.ArrayList;
@@ -10,7 +9,6 @@ import java.util.List;
  * @author purgeyao
  * @since 1.0
  */
-@Data
 @ConfigurationProperties(GlobalDefaultProperties.PREFIX)
 public class GlobalDefaultProperties {
 
@@ -25,5 +23,21 @@ public class GlobalDefaultProperties {
      * 统一返回过滤类
      */
     private List<String> adviceFilterClass = new ArrayList<>();
+
+    public List<String> getAdviceFilterPackage() {
+        return adviceFilterPackage;
+    }
+
+    public void setAdviceFilterPackage(List<String> adviceFilterPackage) {
+        this.adviceFilterPackage = adviceFilterPackage;
+    }
+
+    public List<String> getAdviceFilterClass() {
+        return adviceFilterClass;
+    }
+
+    public void setAdviceFilterClass(List<String> adviceFilterClass) {
+        this.adviceFilterClass = adviceFilterClass;
+    }
 
 }

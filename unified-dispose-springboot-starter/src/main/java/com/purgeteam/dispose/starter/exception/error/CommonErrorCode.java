@@ -1,6 +1,5 @@
 package com.purgeteam.dispose.starter.exception.error;
 
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 /**
@@ -9,7 +8,6 @@ import org.springframework.http.HttpStatus;
  * @author purgeyao
  * @since 1.0
  */
-@Getter
 public enum CommonErrorCode {
 
     /**
@@ -68,6 +66,14 @@ public enum CommonErrorCode {
     private String code;
 
     private String message;
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 
     CommonErrorCode(String code, String message) {
         this.code = code;

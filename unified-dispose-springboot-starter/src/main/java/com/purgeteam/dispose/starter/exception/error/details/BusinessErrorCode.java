@@ -1,14 +1,11 @@
 package com.purgeteam.dispose.starter.exception.error.details;
 
-import lombok.Getter;
-
 /**
  * 业务通用异常枚举
  *
  * @author purgeyao
  * @since 1.0
  */
-@Getter
 public enum BusinessErrorCode {
 
     /**
@@ -20,6 +17,14 @@ public enum BusinessErrorCode {
     private String code;
 
     private String message;
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 
     BusinessErrorCode(String code, String message) {
         this.code = code;

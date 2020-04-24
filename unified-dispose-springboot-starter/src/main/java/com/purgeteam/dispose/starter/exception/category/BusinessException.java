@@ -2,7 +2,6 @@ package com.purgeteam.dispose.starter.exception.category;
 
 import com.purgeteam.dispose.starter.exception.error.CommonErrorCode;
 import com.purgeteam.dispose.starter.exception.error.details.BusinessErrorCode;
-import lombok.Getter;
 
 /**
  * {@link RuntimeException} 通用业务异常
@@ -10,11 +9,18 @@ import lombok.Getter;
  * @author purgeyao
  * @since 1.0
  */
-@Getter
 public class BusinessException extends RuntimeException {
 
     private String code;
     private boolean isShowMsg = true;
+
+    public String getCode() {
+        return code;
+    }
+
+    public boolean isShowMsg() {
+        return isShowMsg;
+    }
 
     /**
      * 使用枚举传参

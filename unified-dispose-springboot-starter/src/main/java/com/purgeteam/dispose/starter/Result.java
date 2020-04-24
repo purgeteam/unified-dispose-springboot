@@ -7,21 +7,12 @@ import com.purgeteam.dispose.starter.exception.error.CommonErrorCode;
 
 import java.io.Serializable;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 /**
  * 返回统一数据结构
  *
  * @author purgeyao
  * @since 1.0
  */
-@Data
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
 public class Result<T> implements Serializable {
 
     /**
@@ -48,6 +39,57 @@ public class Result<T> implements Serializable {
      * 错误描述
      */
     private String msg;
+
+    public Boolean getSucc() {
+        return succ;
+    }
+
+    public void setSucc(Boolean succ) {
+        this.succ = succ;
+    }
+
+    public Long getTs() {
+        return ts;
+    }
+
+    public void setTs(Long ts) {
+        this.ts = ts;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public Result() {
+    }
+
+    public Result(Boolean succ, Long ts, T data, String code, String msg) {
+        this.succ = succ;
+        this.ts = ts;
+        this.data = data;
+        this.code = code;
+        this.msg = msg;
+    }
 
     public static Result ofSuccess() {
         Result result = new Result();
@@ -98,5 +140,16 @@ public class Result<T> implements Serializable {
         jsonObject.put("msg", this.msg);
         jsonObject.put("data", this.data);
         return JSON.toJSONString(jsonObject, SerializerFeature.DisableCircularReferenceDetect);
+    }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "succ=" + succ +
+                ", ts=" + ts +
+                ", data=" + data +
+                ", code='" + code + '\'' +
+                ", msg='" + msg + '\'' +
+                '}';
     }
 }
