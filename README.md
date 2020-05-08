@@ -121,7 +121,7 @@ public enum UserErrorCode {
 
     private String message;
 
-    CommonErrorCode(String code, String message) {
+    UserErrorCode(String code, String message) {
         this.code = code;
         this.message = message;
     }
@@ -143,8 +143,7 @@ throw new UserException(UserErrorCode.NOT_PERMISSIONS);
   "ts": 1566467628851,  // 时间戳
   "data": null,         // 数据
   "code": "CLOUD800",   // 错误类型
-  "msg": "业务异常",    // 错误描述
-  "fail": true
+  "msg": "业务异常"      // 错误描述
 }
 ```
 
@@ -168,8 +167,7 @@ throw new UserException(UserErrorCode.NOT_PERMISSIONS);
   "ts": 1566467628851,  // 时间戳
   "data": "hello",      // 数据
   "code": null,         // 错误类型
-  "msg": null,          // 错误描述
-  "fail": true
+  "msg": null           // 错误描述
 }
 ```
 ### 功能使用
@@ -193,8 +191,7 @@ public String test(){
   "ts": 1566386951005,      // 时间戳
   "data": "test",           // 数据
   "code": null,             // 错误类型
-  "msg": null,              // 错误描述
-  "fail": false             
+  "msg": null               // 错误描述         
 }
 ```
 
