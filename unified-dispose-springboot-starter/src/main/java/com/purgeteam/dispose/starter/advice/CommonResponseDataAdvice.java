@@ -3,7 +3,7 @@ package com.purgeteam.dispose.starter.advice;
 import com.alibaba.fastjson.JSON;
 import com.purgeteam.dispose.starter.GlobalDefaultProperties;
 import com.purgeteam.dispose.starter.Result;
-import com.purgeteam.dispose.starter.annotation.IgnorReponseAdvice;
+import com.purgeteam.dispose.starter.annotation.IgnoreResponseAdvice;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
- * {@link IgnorReponseAdvice} 处理解析 {@link ResponseBodyAdvice} 统一返回包装器
+ * {@link IgnoreResponseAdvice} 处理解析 {@link ResponseBodyAdvice} 统一返回包装器
  *
  * @author purgeyao
  * @since 1.0
@@ -77,10 +77,10 @@ public class CommonResponseDataAdvice implements ResponseBodyAdvice<Object> {
             return false;
         }
         // 检查注解是否存在
-        if (methodParameter.getDeclaringClass().isAnnotationPresent(IgnorReponseAdvice.class)) {
+        if (methodParameter.getDeclaringClass().isAnnotationPresent(IgnoreResponseAdvice.class)) {
             return false;
         }
-        if (methodParameter.getMethod().isAnnotationPresent(IgnorReponseAdvice.class)) {
+        if (methodParameter.getMethod().isAnnotationPresent(IgnoreResponseAdvice.class)) {
             return false;
         }
         return true;

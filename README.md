@@ -195,14 +195,14 @@ public String test(){
 }
 ```
 
-### 忽略封装注解:@IgnorReponseAdvice
+### 忽略封装注解:@IgnoreResponseAdvice
 
-`@IgnorReponseAdvice`允许范围为：**类 + 方法**，标识在类上这个类下的所有方法的返回都将忽略返回封装。
+`@IgnoreResponseAdvice`允许范围为：**类 + 方法**，标识在类上这个类下的所有方法的返回都将忽略返回封装。
 
 接口：
 
 ```java
-@IgnorReponseAdvice // 忽略数据包装 可添加到类、方法上
+@IgnoreResponseAdvice // 忽略数据包装 可添加到类、方法上
 @GetMapping("test")
 public String test(){
   return "test";

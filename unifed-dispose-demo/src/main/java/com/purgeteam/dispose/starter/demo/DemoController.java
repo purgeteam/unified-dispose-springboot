@@ -1,6 +1,6 @@
 package com.purgeteam.dispose.starter.demo;
 
-import com.purgeteam.dispose.starter.annotation.IgnorReponseAdvice;
+import com.purgeteam.dispose.starter.annotation.IgnoreResponseAdvice;
 import com.purgeteam.dispose.starter.exception.category.BusinessException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,9 +47,9 @@ public class DemoController {
     }
 
     /**
-     * {@link IgnorReponseAdvice} 使用
+     * {@link IgnoreResponseAdvice} 使用
      */
-    @IgnorReponseAdvice
+    @IgnoreResponseAdvice
     @GetMapping("ignor")
     public String ignor() {
         return "ignor";

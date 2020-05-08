@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface IgnorReponseAdvice {
+public @interface IgnoreResponseAdvice {
 
     /**
      * 是否进行全局异常处理封装

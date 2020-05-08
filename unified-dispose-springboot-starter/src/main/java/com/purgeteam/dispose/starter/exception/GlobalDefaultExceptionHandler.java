@@ -2,7 +2,7 @@ package com.purgeteam.dispose.starter.exception;
 
 import com.netflix.client.ClientException;
 import com.purgeteam.dispose.starter.Result;
-import com.purgeteam.dispose.starter.annotation.IgnorReponseAdvice;
+import com.purgeteam.dispose.starter.annotation.IgnoreResponseAdvice;
 import com.purgeteam.dispose.starter.exception.category.BusinessException;
 import com.purgeteam.dispose.starter.exception.error.CommonErrorCode;
 import feign.FeignException;
@@ -226,8 +226,8 @@ public class GlobalDefaultExceptionHandler {
         } catch (NoSuchMethodException noSuchMethodException) {
             throw e;
         }
-        // 判断方法是否存在 IgnorReponseAdvice 注解
-        IgnorReponseAdvice methodAnnotation = method.getAnnotation(IgnorReponseAdvice.class);
+        // 判断方法是否存在 IgnoreResponseAdvice 注解
+        IgnoreResponseAdvice methodAnnotation = method.getAnnotation(IgnoreResponseAdvice.class);
         if (methodAnnotation != null) {
             // 是否使用异常处理
             if (!methodAnnotation.errorDispose()) {
@@ -236,8 +236,8 @@ public class GlobalDefaultExceptionHandler {
                 return;
             }
         }
-        // 判类是否存在 IgnorReponseAdvice 注解
-        IgnorReponseAdvice classAnnotation = (IgnorReponseAdvice) cl1.getAnnotation(IgnorReponseAdvice.class);
+        // 判类是否存在 IgnoreResponseAdvice 注解
+        IgnoreResponseAdvice classAnnotation = (IgnoreResponseAdvice) cl1.getAnnotation(IgnoreResponseAdvice.class);
         if (classAnnotation != null) {
             if (!classAnnotation.errorDispose()) {
                 throw e;

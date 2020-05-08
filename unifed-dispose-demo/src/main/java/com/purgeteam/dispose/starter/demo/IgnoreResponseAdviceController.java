@@ -1,6 +1,6 @@
 package com.purgeteam.dispose.starter.demo;
 
-import com.purgeteam.dispose.starter.annotation.IgnorReponseAdvice;
+import com.purgeteam.dispose.starter.annotation.IgnoreResponseAdvice;
 import com.purgeteam.dispose.starter.exception.category.BusinessException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 1.0.0
  */
 @RestController
-@IgnorReponseAdvice(errorDispose = false)
+@IgnoreResponseAdvice(errorDispose = false)
 @RequestMapping("ignor")
-public class IgnorReponseAdviceController {
+public class IgnoreResponseAdviceController {
 
     /**
      * 全局异常处理
@@ -29,7 +29,7 @@ public class IgnorReponseAdviceController {
      * 全局异常处理
      */
     @GetMapping("error1")
-//    @IgnorReponseAdvice
+//    @IgnoreResponseAdvice
     public String error1() {
         throw new BusinessException("0", "异常演示");
     }
