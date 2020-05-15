@@ -19,8 +19,12 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.lang.reflect.Method;
@@ -208,24 +212,14 @@ public class GlobalDefaultExceptionHandler {
      * @throws Throwable 异常
      */
     private <T extends Throwable> void errorDispose(T e) throws Throwable {
-        StackTraceElement[] stackTrace = e.getStackTrace();
-        StackTraceElement stackTraceElement = stackTrace[0];
-        String className = stackTraceElement.getClassName();
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HandlerMethod handlerMethod = (HandlerMethod) request.getAttribute("org.springframework.web.servlet.HandlerMapping.bestMatchingHandler");
+
         // 获取异常 Controller
-        Class cl1;
-        try {
-            cl1 = Class.forName(className);
-        } catch (ClassNotFoundException classNotFoundException) {
-            throw e;
-        }
+        Class<?> beanType = handlerMethod.getBeanType();
         // 获取异常方法
-        Method method;
-        try {
-            String methodName = stackTraceElement.getMethodName();
-            method = cl1.getDeclaredMethod(methodName);
-        } catch (NoSuchMethodException noSuchMethodException) {
-            throw e;
-        }
+        Method method = handlerMethod.getMethod();
+
         // 判断方法是否存在 IgnoreResponseAdvice 注解
         IgnoreResponseAdvice methodAnnotation = method.getAnnotation(IgnoreResponseAdvice.class);
         if (methodAnnotation != null) {
@@ -237,7 +231,7 @@ public class GlobalDefaultExceptionHandler {
             }
         }
         // 判类是否存在 IgnoreResponseAdvice 注解
-        IgnoreResponseAdvice classAnnotation = (IgnoreResponseAdvice) cl1.getAnnotation(IgnoreResponseAdvice.class);
+        IgnoreResponseAdvice classAnnotation = (IgnoreResponseAdvice) beanType.getAnnotation(IgnoreResponseAdvice.class);
         if (classAnnotation != null) {
             if (!classAnnotation.errorDispose()) {
                 throw e;

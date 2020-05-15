@@ -59,7 +59,7 @@ public class DemoController {
      * 全局异常处理
      */
     @GetMapping("businessError")
-    public String error() {
+    public String businessError(String test) {
         throw new BusinessException("0", "异常演示");
     }
 }
