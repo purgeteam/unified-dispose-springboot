@@ -9,7 +9,7 @@
 ### Code Contributors
 
 This project exists thanks to all the people who contribute. [[Contribute](.github/CONTRIBUTING.md)].
-<a href="https://github.com/vuejs/vuepress/graphs/contributors"><img src="https://opencollective.com/vuepress/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/purgeteam/unified-dispose-springboot/graphs/contributors"><img src="https://opencollective.com/vuepress/contributors.svg?width=890&button=false" /></a>
 
 ## 简介
 
