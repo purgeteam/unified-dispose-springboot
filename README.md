@@ -6,6 +6,11 @@
 ![License](https://img.shields.io/badge/maven-3.0+-green.svg)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](.github/CONTRIBUTING.md)].
+<a href="https://github.com/vuejs/vuepress/graphs/contributors"><img src="https://opencollective.com/vuepress/contributors.svg?width=890&button=false" /></a>
+
 ## 简介
 
 重复功能我来写。在 `SpringBoot` 项目里都有全局异常处理以及返回包装等，返回前端是带上`succ`、`code`、`msg`、`data`等字段。单个项目情况下很好解决，当微服务模块多的情况下，很多情况开发都是复制原有代码进行构建另外一个项目的，导致这些功能升级需要修改多个服务，在这个基础上，我们封装了一个组件 `unified-dispose-springboot-starter` 里面包含了一些基础的异常处理以及返回包装功能。
