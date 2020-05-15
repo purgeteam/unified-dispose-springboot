@@ -231,7 +231,7 @@ public class GlobalDefaultExceptionHandler {
             }
         }
         // 判类是否存在 IgnoreResponseAdvice 注解
-        IgnoreResponseAdvice classAnnotation = (IgnoreResponseAdvice) beanType.getAnnotation(IgnoreResponseAdvice.class);
+        IgnoreResponseAdvice classAnnotation = beanType.getAnnotation(IgnoreResponseAdvice.class);
         if (classAnnotation != null) {
             if (!classAnnotation.errorDispose()) {
                 throw e;
