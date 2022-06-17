@@ -17,7 +17,7 @@
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>
 
-        <alibaba-fastjson.version>1.2.59</alibaba-fastjson.version>
+        <alibaba-fastjson.version>1.2.83</alibaba-fastjson.version>
         <javaee-api.version>8.0</javaee-api.version>
         <ribbon-core.version>2.7.17</ribbon-core.version>
         <feign-core.version>10.4.0</feign-core.version>
